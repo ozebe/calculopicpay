@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/teste.css"  media="screen,projection"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+
+</head>
+<body>
+
+
+
+
+  <div class="container">
+    <div class="section">
+      <h4>Calculo de pagamento - boleto Picpay</h4>
+      <div class="row">
+        <form class="col s10">
+          <div class="row">
+
+            <div class="input-field">
+              <i class="material-icons prefix">local_atm</i>
+              <input id="valBoleto" type="number" class="validate">
+              <label for="valBoleto">Valor do boleto</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">today</i>
+              <input id="qtdParcelas" type="number" class="validate">
+              <label for="qtdParcelas">Quantia de parcelas</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">attach_money</i>
+              <input id="valTaxaParcel" type="number" class="validate" value="3.49">
+              <label for="valTaxaParcel">% da taxa de parcelamento</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">attach_money</i>
+              <input id="valTaxaCartao" type="number" class="validate" value="2.99">
+              <label for="valTaxaCartao">% da taxa de pagamento com cartão</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">attach_money</i>
+              <input id="maxVolta" type="number" class="validate" value="700">
+              <label for="maxVolta">Valor máximo de cashback</label>
+            </div>
+
+            <br>
+            <h5>% de cashback por parcelas</h5>
+            <br>
+
+
+
+            <div class="input-field">
+              <i class="material-icons prefix">show_chart</i>
+              <input id="porcentDoisACincoParcelas" type="number" class="validate" value="10">
+              <label for="porcentDoisACincoParcelas">Porcentagem de cashback de 2 a 5 parcelas</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">show_chart</i>
+              <input id="porcentSeisANoveParcelas" type="number" class="validate" value="15">
+              <label for="porcentSeisANoveParcelas">Porcentagem de cashback de 6 a 9 parcelas</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">show_chart</i>
+              <input id="porcentDezAOnzeParcelas" type="number" class="validate" value="20">
+              <label for="porcentDezAOnzeParcelas">Porcentagem de cashback de 10 a 11 parcelas</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">show_chart</i>
+              <input id="porcentDozeParcelas" type="number" class="validate" value="25">
+              <label for="porcentDozeParcelas">Porcentagem de cashback de 12 parcelas</label>
+            </div>
+
+            
+            <!--href="./resultado.html"-->
+            <!-- botoes em formato normal -->
+            <!--
+            <br>
+            <a class="waves-effect waves-light btn" onClick="calcular()"><i class="material-icons right">forward</i>Calcular</a>
+            <a class="waves-effect waves-light btn" onClick="limpar()"><i class="material-icons right">delete</i>Limpar</a>
+            <br>
+            -->
+
+            <!-- Botão flutuante com opção de editar e apagar, para utilizar na view-->   
+            <div class="fixed-action-btn horizontal">
+              <a class="btn-floating waves-effect waves-light btn-large orange darken-1">
+                <i class="large material-icons">build</i>
+              </a>
+              <ul>
+                <li><a class="btn-floating btn-medium waves-effect waves-light red" onClick="limpar()" ><i class="material-icons" style="color: white;">delete</i></a></li>
+                <li><a class="btn-floating btn-medium waves-effect waves-light cyan darken-2"><i class="material-icons" onClick="calcular()" style="color: white;">check</i></a></li>
+              </ul>
+            </div>
+
+            <br>
+            <div class="input-field">
+              <i class="material-icons prefix">attach_money</i>
+              <input disabled value=" " id="vlrTaxaCartao" type="text" class="validate">
+              <label for="vlrTaxaCartao">Valor da taxa de cartão</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">attach_money</i>
+              <input disabled value=" " id="vlrTotalParcelamento" type="text" class="validate">
+              <label for="vlrTotalParcelamento">Valor da taxa de parcelamento</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">attach_money</i>
+              <input disabled value=" " id="totalVlrBol" type="text" class="validate">
+              <label for="totalVlrBol">Valor do boleto + taxa de parcelamento</label>
+            </div>
+
+            <div class="input-field">
+              <i class="material-icons prefix">attach_money</i>
+              <input disabled value=" " id="totalVlrBolComTxCartao" type="text" class="validate">
+              <label for="totalVlrBolComTxCartao">Valor total com todas as taxas inclusas</label>
+            </div>
+
+
+            <!--Mostra os dados do valor de retorno -->
+            <ul class="collection">
+             <li class="collection-item avatar">
+              <i class="material-icons circle green">local_atm</i>
+              <span id="pVlrRetorno" class="title"></span>
+              <p id="teste"></p>
+              <p></p>
+            </li>
+          </ul>
+
+        </div>
+      </form>
+    </div> 
+  </div>
+</div>
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="js/init.js"></script>  
+</body>
+</html>
