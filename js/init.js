@@ -32,10 +32,10 @@ function calcular() {
     //valor em % da taxa do parcelamento, por parcela
     var valTaxaParcel = parseFloat(document.getElementById("valTaxaParcel").value);
 
-    //% de taxa do valor do cartÃ£o
+    //% de taxa do valor do cartão
     var valTaxaCartao = parseFloat(document.getElementById("valTaxaCartao").value);
 
-    //mÃ¡ximo de volta possÃ­vel
+    //máximo de volta possível
     var maxVolta = parseFloat(document.getElementById("maxVolta").value);
 
     //quantia de parcelas
@@ -54,8 +54,8 @@ function calcular() {
 
 
         //        i / (1 - (1 + i) ^ (-n))
-        //        Onde i = taxa de juros (ex: 3,49% por parcela, nesse caso Ã© dividido o valor por 100, ficando 0.0349)
-        //        quantia de meses, perÃ­odo: n
+        //        Onde i = taxa de juros (ex: 3,49% por parcela, nesse caso é dividido o valor por 100, ficando 0.0349)
+        //        quantia de meses, período: n
         var a = 1 + (parseFloat(valTaxaParcel) / 100);
         var b = (parseFloat(qtdParcelas) * -1);
         var c = 1 - (Math.pow(a, b));
@@ -63,7 +63,7 @@ function calcular() {
 
         var vlrTotalParcelamento = (qtdParcelas * (vlrBoletoComTaxaCartao * coefFinanc)) - vlrBoletoComTaxaCartao;
 
-        //os 30% de volta incide em valor do boleto + taxa total de parcelamento no cartÃ£o, nÃ£o na taxa de cartÃ£o
+        //os 30% de volta incide em valor do boleto + taxa total de parcelamento no cartão, não na taxa de cartão
         var totalVlrBol = parseFloat(valBoleto) + parseFloat(vlrTotalParcelamento);
         var totalVlrBolComTxCartao = vlrBoletoComTaxaCartao + vlrTotalParcelamento;
 
@@ -75,8 +75,8 @@ function calcular() {
             var porcentDoisACincoParcelas = parseFloat(document.getElementById("porcentDoisACincoParcelas").value);
 
             if (((totalVlrBol / 100) * porcentDoisACincoParcelas) >= maxVolta) {
-                $('#pVlrRetorno').append('Valor de retorno teÃ³rico: ' + 'R$' + ((totalVlrBol / 100) * porcentDoisACincoParcelas).toFixed(2));
-                $('#pVlrRetorno').append('<br/>' + 'Excedeu o mÃ¡ximo de retorno (' + 'R$' + maxVolta + ')' + ' em: ' + 'R$' + (((totalVlrBol / 100) * porcentDoisACincoParcelas) - maxVolta).toFixed(2));
+                $('#pVlrRetorno').append('Valor de retorno teórico: ' + 'R$' + ((totalVlrBol / 100) * porcentDoisACincoParcelas).toFixed(2));
+                $('#pVlrRetorno').append('<br/>' + 'Excedeu o máximo de retorno (' + 'R$' + maxVolta + ')' + ' em: ' + 'R$' + (((totalVlrBol / 100) * porcentDoisACincoParcelas) - maxVolta).toFixed(2));
                 var vlrRetorno = maxVolta - (vlrTotalParcelamento + vlrTaxaCartao);
                 $('#pVlrRetorno').append('<br/>' + 'Retorno: ' + 'R$' + vlrRetorno.toFixed(2));
 
@@ -90,8 +90,8 @@ function calcular() {
             var porcentSeisANoveParcelas = parseFloat(document.getElementById("porcentSeisANoveParcelas").value);
 
             if (((totalVlrBol / 100) * porcentSeisANoveParcelas) >= maxVolta) {
-                $('#pVlrRetorno').append('Valor de retorno teÃ³rico: ' + 'R$' + ((totalVlrBol / 100) * porcentSeisANoveParcelas).toFixed(2));
-                $('#pVlrRetorno').append('<br/>' + 'Excedeu o mÃ¡ximo de retorno (' + 'R$' + maxVolta + ')' + ' em: ' + 'R$' + (((totalVlrBol / 100) * porcentSeisANoveParcelas) - maxVolta).toFixed(2));
+                $('#pVlrRetorno').append('Valor de retorno teórico: ' + 'R$' + ((totalVlrBol / 100) * porcentSeisANoveParcelas).toFixed(2));
+                $('#pVlrRetorno').append('<br/>' + 'Excedeu o máximo de retorno (' + 'R$' + maxVolta + ')' + ' em: ' + 'R$' + (((totalVlrBol / 100) * porcentSeisANoveParcelas) - maxVolta).toFixed(2));
                 var vlrRetorno = maxVolta - (vlrTotalParcelamento + vlrTaxaCartao);
                 $('#pVlrRetorno').append('<br/>' + 'Retorno: ' + 'R$' + vlrRetorno.toFixed(2));
 
@@ -105,8 +105,8 @@ function calcular() {
             var porcentDezAOnzeParcelas = parseFloat(document.getElementById("porcentDezAOnzeParcelas").value);
 
             if (((totalVlrBol / 100) * porcentDezAOnzeParcelas) >= maxVolta) {
-                $('#pVlrRetorno').append('Valor de retorno teÃ³rico: ' + 'R$' + ((totalVlrBol / 100) * porcentDezAOnzeParcelas).toFixed(2));
-                $('#pVlrRetorno').append('<br/>' + 'Excedeu o mÃ¡ximo de retorno (' + 'R$' + maxVolta + ')' + ' em: ' + 'R$' + (((totalVlrBol / 100) * porcentDezAOnzeParcelas) - maxVolta).toFixed(2));
+                $('#pVlrRetorno').append('Valor de retorno teórico: ' + 'R$' + ((totalVlrBol / 100) * porcentDezAOnzeParcelas).toFixed(2));
+                $('#pVlrRetorno').append('<br/>' + 'Excedeu o máximo de retorno (' + 'R$' + maxVolta + ')' + ' em: ' + 'R$' + (((totalVlrBol / 100) * porcentDezAOnzeParcelas) - maxVolta).toFixed(2));
                 var vlrRetorno = maxVolta - (vlrTotalParcelamento + vlrTaxaCartao);
                 $('#pVlrRetorno').append('<br/>' + 'Retorno: ' + 'R$' + vlrRetorno.toFixed(2));
 
@@ -120,8 +120,8 @@ function calcular() {
             var porcentDozeParcelas = parseFloat(document.getElementById("porcentDozeParcelas").value);
 
             if (((totalVlrBol / 100) * porcentDozeParcelas) >= maxVolta) {
-                $('#pVlrRetorno').append('Valor de retorno teÃ³rico: ' + 'R$' + ((totalVlrBol / 100) * porcentDozeParcelas).toFixed(2));
-                $('#pVlrRetorno').append('<br/>' + 'Excedeu o mÃ¡ximo de retorno (' + 'R$' + maxVolta + ')' + ' em: ' + 'R$' + (((totalVlrBol / 100) * porcentDozeParcelas) - maxVolta).toFixed(2));
+                $('#pVlrRetorno').append('Valor de retorno teórico: ' + 'R$' + ((totalVlrBol / 100) * porcentDozeParcelas).toFixed(2));
+                $('#pVlrRetorno').append('<br/>' + 'Excedeu o máximo de retorno (' + 'R$' + maxVolta + ')' + ' em: ' + 'R$' + (((totalVlrBol / 100) * porcentDozeParcelas) - maxVolta).toFixed(2));
                 var vlrRetorno = maxVolta - (vlrTotalParcelamento + vlrTaxaCartao);
                 $('#pVlrRetorno').append('<br/>' + 'Retorno: ' + 'R$' + vlrRetorno.toFixed(2));
 
@@ -148,6 +148,8 @@ function calcular() {
 function limpar() {
      $('#pVlrRetorno').empty();
      $('#valBoleto').empty();
+     
+
 }
 
 function validar() {
@@ -166,7 +168,6 @@ function validar() {
     var valTaxaParcel = parseFloat(document.getElementById("valTaxaParcel").value);
 
     var valTaxaCartao = parseFloat(document.getElementById("valTaxaCartao").value);
-
 
     if (((isNaN(valBoleto)) || (valBoleto <= 0)) || ((isNaN(qtdParcelas)) || (qtdParcelas <= 0)) || ((isNaN(porcentDoisACincoParcelas)) || (porcentDoisACincoParcelas <= 0)) || ((isNaN(porcentSeisANoveParcelas)) || (porcentSeisANoveParcelas <= 0)) || ((isNaN(porcentDezAOnzeParcelas)) || (porcentDezAOnzeParcelas <= 0)) || ((isNaN(porcentDozeParcelas)) || (porcentDozeParcelas <= 0)) || ((isNaN(valTaxaParcel)) || (valTaxaParcel <= 0)) || ((isNaN(valTaxaCartao)) || (valTaxaCartao <= 0))) {
         return false;
